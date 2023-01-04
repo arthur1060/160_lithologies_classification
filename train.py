@@ -30,25 +30,15 @@ def main(args):
     train_images_path, train_images_label = read_split_datas(".\\data\\train")
     test_images_path, test_images_label = read_split_datas(".\\data\\test")
 
-    img_size = {"B0": 224,
-                "B1": 240,
-                "B2": 260,
-                "B3": 300,
-                "B4": 380,
-                "B5": 456,
-                "B6": 528,
-                "B7": 600}
-    num_model = "B0"
-
     data_transform = {
         "train": transforms.Compose([transforms.RandomHorizontalFlip(),
                                      transforms.ColorJitter(brightness=0.0, contrast=0.0, saturation=0.0, hue=0.0),
                                      transforms.ToTensor(),
                                      transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])]),
-        "test": transforms.Compose([transforms.Resize((img_size[num_model],img_size[num_model])),
+        "test": transforms.Compose([transforms.Resize((224,224)),
                                    transforms.ToTensor(),
                                    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])]),
-        "val": transforms.Compose([transforms.Resize(img_size[num_model]),
+        "val": transforms.Compose([transforms.Resize((224,224)),
                                     transforms.ToTensor(),
                                     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
     }
