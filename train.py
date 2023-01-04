@@ -52,20 +52,20 @@ def main(args):
                             transform=data_transform["test"])
 
     batch_size = args.batch_size
-    nw = min([os.cpu_count(), batch_size if batch_size > 1 else 0, 8])  # number of workers
+    nw = 4
     print('Using {} dataloader workers every process'.format(nw))
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=batch_size,
                                                shuffle=True,
                                                pin_memory=True,
-                                               num_workers=0,
+                                               num_workers=nw,
                                                collate_fn=train_dataset.collate_fn)
 
     test_loader = torch.utils.data.DataLoader(test_dataset,
                                              batch_size=batch_size,
                                              shuffle=False,
                                              pin_memory=True,
-                                             num_workers=0,
+                                             num_workers=nw,
                                              collate_fn=test_dataset.collate_fn)
 
     model = MetaMo(num_classes=args.num_classes).to(device)
@@ -147,7 +147,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_classes', type=int, default=160)
     parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--batch-size', type=int, default=32)
+    parser.add_argument('--batch-size', type=int, default=64)
     parser.add_argument('--lr', type=float, default=0.005)
     parser.add_argument('--weights', type=str, default= ".\\trained_model\\Meta1-61.pth",
                         help='initial weights path')
