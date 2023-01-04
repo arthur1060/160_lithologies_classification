@@ -72,25 +72,6 @@ def main(args):
     model = nn.DataParallel(model)
     weights_dict = torch.load(args.weights, map_location=device)
     model.load_state_dict(weights_dict, strict=False)
-    """
-    if args.weights != "":
-        if os.path.exists(args.weights):
-            weights_dict = torch.load(args.weights, map_location=device)
-            model.load_state_dict(weights_dict, strict=False)
-            
-            load_weights_dict = {}
-            for k, v in weights_dict.items():
-                if k.startswith("module"):
-
-                    new_key = k
-                else:
-                    new_key = "module." + k
-                if model.state_dict()[new_key].numel() == v.numel():
-                    load_weights_dict.update({new_key: v})
-            print(model.load_state_dict(load_weights_dict, strict=False))
-        else:
-            raise FileNotFoundError("not found weights file: {}".format(args.weights))
-    """
 
     pg = [p for p in model.parameters() if p.requires_grad]
     optimizer = optim.Adam(pg, lr=args.lr, weight_decay=1E-4)
