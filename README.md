@@ -19,4 +19,10 @@ tensorboard==1.13.1
 
 ## Training
 
-
+(1) Data Preparation
+  The data used for training, testing and validation need to be prepared before training and saved in the corresponding folder under the data file. Every class occupies a separate folder under data\\train, data\\test, data\\val.
+(2) Model initialization
+      The trained model weight has been saved in trained_model file. 
+(3) model training
+      The number of categories, batch size, initial learning rate, etc. can be modified in train.py.
+Run python train.py
