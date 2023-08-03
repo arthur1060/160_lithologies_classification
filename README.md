@@ -14,7 +14,7 @@ Refined lithology identification is the reliable basis for determining the spati
         tqdm==4.36.1
         tensorboardx==1.7
         tensorboard==1.13.1
-        run pip install -r requirements.txt to install all the dependencies.
+    run pip install -r requirements.txt to install all the dependencies.
 
 ## Data Preparation
     The data used for training, testing and validation need to be prepared before training and saved in the corresponding folder under the data file. Every class occupies a separate folder under data\\train, data\\test, data\\val.
