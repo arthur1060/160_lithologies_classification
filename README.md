@@ -17,6 +17,6 @@ tqdm==4.36.1
 tensorboardx==1.7
 tensorboard==1.13.1
 
-## headings
+## Training
 
 
