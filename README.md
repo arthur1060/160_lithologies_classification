@@ -1,1 +1,1 @@
-# 160_lithologies_classification
+# Refined lithology identification
