@@ -4,17 +4,17 @@ Refined lithology identification is the reliable basis for determining the spati
 
 ## Dependencies
     This code requires the following:
-    Python>= 3.7
-    numpy==1.22.2
-    Pillow==5.4.1
-    scikit-learn==0.21.1
-    scipy==1.2.1
-    torch==1.9.1
-    torchvision==0.4.2
-    tqdm==4.36.1
-    tensorboardx==1.7
-    tensorboard==1.13.1
-    run pip install -r requirements.txt to install all the dependencies.
+        Python>= 3.7
+        numpy==1.22.2
+        Pillow==5.4.1
+        scikit-learn==0.21.1
+        scipy==1.2.1
+        torch==1.9.1
+        torchvision==0.4.2
+        tqdm==4.36.1
+        tensorboardx==1.7
+        tensorboard==1.13.1
+        run pip install -r requirements.txt to install all the dependencies.
 
 ## Data Preparation
     The data used for training, testing and validation need to be prepared before training and saved in the corresponding folder under the data file. Every class occupies a separate folder under data\\train, data\\test, data\\val.
